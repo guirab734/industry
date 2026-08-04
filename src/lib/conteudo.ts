@@ -18,6 +18,7 @@ export const navegacao = [
   { id: "como-funciona", rotulo: "Como funciona" },
   { id: "empresa", rotulo: "A empresa" },
   { id: "seguranca", rotulo: "Segurança" },
+  { id: "aplicativo", rotulo: "Aplicativo" },
   { id: "avaliacoes", rotulo: "Avaliações" },
   { id: "contato", rotulo: "Contato" },
 ] as const;

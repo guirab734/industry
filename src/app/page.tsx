@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { ComoFunciona } from "@/components/ComoFunciona";
 import { Empresa } from "@/components/Empresa";
 import { Seguranca } from "@/components/Seguranca";
+import { Aplicativo } from "@/components/Aplicativo";
 import { Avaliacoes } from "@/components/Avaliacoes";
 import { Contato } from "@/components/Contato";
 import { Rodape } from "@/components/Rodape";
@@ -22,6 +23,7 @@ export default function Home() {
         <ComoFunciona />
         <Empresa />
         <Seguranca />
+        <Aplicativo />
         <Avaliacoes />
         <Contato />
       </main>

@@ -67,10 +67,37 @@ IBM Plex Mono em valores e códigos.
 O símbolo da marca é um **V que também é o sinal de confirmado** — a mesma
 forma que aparece no fim de todo pagamento aprovado.
 
+## O aplicativo — Velora Sandbox
+
+Em `/app` roda o **Velora Sandbox**, ambiente de teste instalável no celular
+(PWA). Três telas: **Cobrar** (teclado, QR real e comprovante), **Histórico**
+e **Painel** (o monitoramento, com os mesmos limites do circuito do Arduino).
+
+Instala pelo próprio navegador, sem loja de aplicativos: a seção *Aplicativo*
+do site traz um QR Code apontando para ele. Funciona offline depois da
+primeira abertura.
+
+As cobranças são simuladas. O comprovante sai com marca d'água de simulação,
+o identificador começa com `TESTE-` e o QR codifica um texto que diz, em
+português claro, que não é uma cobrança real — de propósito, para que nenhuma
+tela do app possa ser usada como comprovante falso.
+
+### Gerando o .apk
+
+O app é um PWA, então dá para empacotar como APK sem escrever código Android:
+suba o site, abra [pwabuilder.com](https://www.pwabuilder.com), informe a URL
+e baixe o pacote Android assinado.
+
 ## Protótipo de Indústria 4.0
 
 O código do Arduino e as instruções de montagem no Tinkercad estão em
 [`prototipo-iot/`](prototipo-iot/).
+
+## Documentação
+
+- [`docs/projeto.md`](docs/projeto.md) — ferramenta escolhida, protótipo,
+  benefícios, monitoramento e conferência contra os critérios do enunciado
+- [`docs/apresentacao.md`](docs/apresentacao.md) — roteiro minuto a minuto
 
 ## Estrutura
 
