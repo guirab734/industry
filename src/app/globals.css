@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+/*
+  Velora — sistema visual
+  Referência: o comprovante de Pix. Números em fonte monoespaçada,
+  borda picotada de recibo no cartão de comprovante e o verde de
+  "aprovado" como único acento forte.
+*/
+@theme {
+  /* Cor */
+  --color-ink: #0a1e28; /* petróleo escuro — texto e painéis */
+  --color-ink-70: #24424f; /* texto secundário */
+  --color-ink-40: #6d8792; /* legendas e apoio */
+  --color-surface: #edf2f1; /* menta acinzentado — fundo da página */
+  --color-line: #d3dedb; /* divisórias */
+  --color-paper: #ffffff;
+  --color-velora: #00a878; /* verde aprovado — acento principal */
+  --color-velora-dark: #007a57;
+  --color-amber: #e8a317; /* atenção */
+  --color-alert: #e4572e; /* falha */
+
+  /* Tipografia */
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* Escala de display */
+  --text-mega: clamp(2.6rem, 6.5vw, 5.25rem);
+  --text-mega--line-height: 0.95;
+  --text-mega--letter-spacing: -0.035em;
+  --text-titulo: clamp(1.85rem, 4vw, 2.9rem);
+  --text-titulo--line-height: 1.05;
+  --text-titulo--letter-spacing: -0.025em;
+  --text-etiqueta: 0.75rem;
+  --text-etiqueta--line-height: 1;
+  --text-etiqueta--letter-spacing: 0.18em;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* compensa a barra fixa ao pular por âncora */
+  scroll-padding-top: 5.5rem;
+  /* o site é claro; avisa o navegador para não escurecer controles nativos */
+  color-scheme: light;
+}
+
+/* Sem atraso de 300 ms no toque */
+:where(a, button, input, select, textarea, [role="button"]) {
+  touch-action: manipulation;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Números sempre tabulares: valores e métricas não podem dançar */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Etiqueta de seção — o rótulo impresso no topo do comprovante */
+.etiqueta {
+  font-family: var(--font-mono);
+  font-size: var(--text-etiqueta);
+  letter-spacing: var(--text-etiqueta--letter-spacing);
+  text-transform: uppercase;
+}
+
+/*
+  Borda picotada do comprovante. Só no cartão de recibo — é o motivo
+  da marca, não enfeite de seção. `currentColor` deixa o dente assumir
+  a cor do fundo atrás do cartão.
+*/
+.picotado {
+  --dente: 12px;
+  position: relative;
+}
+.picotado::before,
+.picotado::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: calc(var(--dente) / 2);
+  background:
+    radial-gradient(
+        circle at calc(var(--dente) / 2) 50%,
+        currentColor calc(var(--dente) / 2 - 0.5px),
+        transparent calc(var(--dente) / 2)
+      )
+      0 0 / var(--dente) 100% repeat-x;
+}
+.picotado::before {
+  top: 0;
+  transform: scaleY(-1);
+}
+.picotado::after {
+  bottom: 0;
+}
+
+/* Foco visível e consistente em tudo que recebe teclado */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-velora);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* O pulso do monitoramento — o único movimento contínuo do site */
+@keyframes pulso {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+.pulso {
+  animation: pulso 2.4s ease-in-out infinite;
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.surgir {
+  animation: surgir 0.45s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
