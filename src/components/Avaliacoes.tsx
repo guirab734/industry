@@ -2,22 +2,18 @@
 
 import { useMemo, useState } from "react";
 import { Secao } from "./Secao";
-import { criarArmazem, useArmazem } from "@/lib/armazem";
-import { avaliacoesIniciais, type Avaliacao } from "@/lib/conteudo";
-
-const armazem = criarArmazem<Avaliacao[]>(
-  "velora.avaliacoes",
-  avaliacoesIniciais,
-);
+import { useAvaliacoes, publicarAvaliacao } from "@/lib/avaliacoes";
 
 /**
- * Sistema de avaliação. As notas ficam guardadas no próprio navegador,
- * então o que o visitante enviar continua lá quando ele voltar — sem
- * depender de servidor.
+ * Sistema de avaliação. Com o banco configurado, o que uma pessoa escreve
+ * aparece para todo mundo — e chega sozinho na tela de quem já está com o
+ * site aberto. Sem banco, fica guardado no navegador de quem escreveu.
  */
 export function Avaliacoes() {
-  const avaliacoes = useArmazem(armazem);
+  const { itens: avaliacoes, carregando, erro: erroBanco, fonte } =
+    useAvaliacoes();
   const [enviada, setEnviada] = useState(false);
+  const [enviando, setEnviando] = useState(false);
 
   const [nome, setNome] = useState("");
   const [papel, setPapel] = useState("");
@@ -41,30 +37,41 @@ export function Avaliacoes() {
     [avaliacoes],
   );
 
-  function enviar(evento: React.FormEvent) {
+  async function enviar(evento: React.FormEvent) {
     evento.preventDefault();
+    if (enviando) return;
 
     if (nota === 0) {
       setErro("Escolha de 1 a 5 estrelas para enviar.");
       return;
     }
-    if (comentario.trim().length < 10) {
+    const texto = comentario.trim();
+    if (texto.length < 10) {
       setErro("Escreva pelo menos 10 caracteres no comentário.");
+      return;
+    }
+    if (texto.length > 600) {
+      setErro("O comentário passou de 600 caracteres.");
       return;
     }
 
     setErro(null);
-    armazem.gravar([
-      {
-        id: `local-${Date.now()}`,
-        nome: nome.trim() || "Cliente Velora",
-        papel: papel.trim() || "Lojista",
-        nota,
-        comentario: comentario.trim(),
-        data: new Date().toISOString().slice(0, 10),
-      },
-      ...avaliacoes,
-    ]);
+    setEnviada(false);
+    setEnviando(true);
+
+    const resultado = await publicarAvaliacao({
+      nome: nome.trim().slice(0, 60) || "Cliente Velora",
+      papel: papel.trim().slice(0, 60) || "Lojista",
+      nota,
+      comentario: texto,
+    });
+
+    setEnviando(false);
+
+    if (!resultado.ok) {
+      setErro(resultado.erro ?? "Não deu para publicar agora.");
+      return;
+    }
 
     setNome("");
     setPapel("");
@@ -86,15 +93,25 @@ export function Avaliacoes() {
           <p className="etiqueta text-ink-40">Nota média</p>
           <div className="mt-4 flex items-end gap-3">
             <span className="tabular font-display text-6xl leading-none font-semibold">
-              {media.toFixed(1).replace(".", ",")}
+              {carregando ? "—" : media.toFixed(1).replace(".", ",")}
             </span>
             <span className="pb-1.5 text-ink-40">de 5</span>
           </div>
-          <Estrelas nota={Math.round(media)} className="mt-4" />
+          <Estrelas nota={carregando ? 0 : Math.round(media)} className="mt-4" />
           <p className="mt-3 text-sm text-ink-40">
-            {avaliacoes.length}{" "}
-            {avaliacoes.length === 1 ? "avaliação" : "avaliações"}
+            {carregando
+              ? "Carregando…"
+              : `${avaliacoes.length} ${avaliacoes.length === 1 ? "avaliação" : "avaliações"}`}
           </p>
+          {fonte === "banco" && (
+            <p className="mt-1.5 flex items-center gap-2 text-xs text-ink-40">
+              <span
+                aria-hidden
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-velora"
+              />
+              Atualiza sozinho quando alguém avalia
+            </p>
+          )}
 
           <ul className="mt-7 space-y-2.5 border-t border-line pt-6">
             {distribuicao.map(({ estrela, quantidade }) => (
@@ -201,19 +218,42 @@ export function Avaliacoes() {
             <div className="mt-6 flex flex-wrap items-center gap-4">
               <button
                 type="submit"
-                className="rounded-full bg-velora px-7 py-3.5 font-medium text-paper transition-colors hover:bg-velora-dark"
+                disabled={enviando}
+                className="rounded-full bg-velora px-7 py-3.5 font-medium text-paper transition-colors hover:bg-velora-dark disabled:opacity-60"
               >
-                Publicar avaliação
+                {enviando ? "Publicando…" : "Publicar avaliação"}
               </button>
               {enviada && !erro && (
                 <p role="status" className="text-sm text-velora-dark">
-                  Publicada. Ela já aparece na lista abaixo.
+                  {fonte === "banco"
+                    ? "Publicada. Todo mundo que abrir o site vê a sua avaliação."
+                    : "Publicada. Ela já aparece na lista abaixo."}
                 </p>
               )}
             </div>
           </form>
 
           {/* Lista */}
+          {erroBanco && (
+            <p
+              role="alert"
+              className="mt-8 rounded-2xl border border-amber/40 bg-amber/8 px-5 py-4 text-sm text-ink-70"
+            >
+              {erroBanco}
+            </p>
+          )}
+
+          {carregando && (
+            <ul className="mt-8 space-y-4" aria-hidden>
+              {[0, 1, 2].map((i) => (
+                <li
+                  key={i}
+                  className="pulso h-36 rounded-3xl border border-line bg-paper"
+                />
+              ))}
+            </ul>
+          )}
+
           <ul className="mt-8 space-y-4">
             {avaliacoes.slice(0, 6).map((avaliacao) => (
               <li

@@ -3,8 +3,8 @@
 Roteiro de fala. A regra que vale para tudo: **não leia a tela.** O site é o
 que a plateia olha; você é quem explica.
 
-Tempo total: **10 minutos**. Se estiver atrasado, corte a seção 6
-(avaliações e contato) — é a única que não faz falta.
+Tempo total: **10 minutos**. Se estiver atrasado, corte o bloco 5
+(missão e organograma) — é o único que a plateia não sente falta.
 
 ## Antes de começar
 
@@ -12,9 +12,11 @@ Tempo total: **10 minutos**. Se estiver atrasado, corte a seção 6
 - [ ] Testar o wi-fi da sala **e** baixar o `.apk` uma vez no seu celular
 - [ ] App aberto pelo menos uma vez (depois disso ele funciona sem internet)
 - [ ] Saber de cabeça o endereço que aparece no QR do início
+- [ ] Abrir a seção Avaliações e conferir que o banco respondeu
 
-Se a internet cair no meio, o site continua funcionando — ele já está
-carregado, e as avaliações e o simulador rodam dentro do navegador.
+Se a internet cair no meio, o site continua de pé — ele já está carregado, e
+o simulador roda dentro do navegador. Só as avaliações novas param de
+chegar, e nesse caso a lista mostra as anteriores em vez de ficar vazia.
 
 ---
 
@@ -132,15 +134,26 @@ tocando em *Atenção* e *Crítico*:
 Esse é o melhor momento da apresentação: a turma está com o seu produto na
 mão. Não corra.
 
-## 8 · Avaliações e contato (30 s)
+## 8 · Avaliações ao vivo (1 min)
 
-Passe rápido:
+A turma ainda está com o site aberto do bloco 2. Use isso:
+
+> "Quem quiser, deixa uma avaliação agora aí no celular de vocês."
+
+Deixe a seção **Avaliações** projetada e **não toque em nada**. As
+avaliações que eles escreverem vão aparecendo sozinhas na tela, sem você
+recarregar a página.
+
+> "Isso está saindo do celular de vocês e indo para um banco de dados. Não
+> é o meu navegador guardando: é uma pessoa escrevendo e a outra vendo."
+
+Se ninguém escrever, escreva você mesmo pelo celular — o efeito na tela
+projetada é o mesmo.
+
+Feche a seção com uma frase e siga:
 
 > "Toda avaliação fica publicada como chegou, inclusive as que apontam o que
 > falta. E o formulário de contato valida o que você digita antes de enviar."
-
-Se alguém já tiver escrito uma avaliação pelo celular, mostre. Vale mais que
-qualquer explicação.
 
 ## 9 · Feche em uma frase (30 s)
 
@@ -158,8 +171,10 @@ Não. O simulador do site e o app são ambiente de teste, os comprovantes saem
 marcados como simulação e nada sai do navegador.
 
 **"Onde ficam as avaliações?"**
-No próprio navegador de quem escreveu. Não precisa de servidor, e por isso
-funciona mesmo se a internet da sala cair.
+Num banco de dados Postgres hospedado, que o site acessa direto do
+navegador — sem back end no meio. Quem escreve de um celular aparece na tela
+de quem está com o site aberto em outro, na hora. Se o banco não responder,
+o site mostra as avaliações anteriores em vez de uma seção vazia.
 
 **"Qual a ferramenta de Indústria 4.0?"**
 Internet das Coisas. Sensores acompanham os servidores que sustentam a
