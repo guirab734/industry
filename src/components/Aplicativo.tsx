@@ -7,6 +7,7 @@ const PASSOS_ANDROID = [
   "Aponte a câmera para o código e abra o link",
   "Toque nos três pontos do navegador",
   "Escolha Instalar aplicativo ou Adicionar à tela inicial",
+  "Ou baixe o .apk e abra o arquivo, liberando a instalação quando o celular pedir",
 ];
 
 const PASSOS_IPHONE = [
@@ -40,6 +41,26 @@ export function Aplicativo() {
           >
             Abrir aqui mesmo
           </a>
+
+          {/* download é atributo, não texto: o navegador salva em vez de abrir */}
+          <a
+            href="/velora-sandbox.apk"
+            download="velora-sandbox.apk"
+            className="mt-3 flex items-center justify-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-ink-40"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" aria-hidden>
+              <path
+                d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            Baixar o .apk
+          </a>
+          <p className="mt-2.5 text-xs text-ink-40">Android · 1 MB</p>
         </div>
 
         <div>

@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Chave de assinatura do app Android — nunca versionar
+*.keystore
+signing-key-info.txt
