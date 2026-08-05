@@ -47,7 +47,19 @@ create policy "qualquer um publica"
 -- nem quem tiver a chave anon consegue editar ou apagar uma avaliação.
 
 -- Faz o INSERT chegar sozinho em quem está com o site aberto.
-alter publication supabase_realtime add table public.avaliacoes;
+-- Precisa do teste: `add table` dá erro se a tabela já estiver na
+-- publicação, e isso derrubaria a execução inteira numa segunda rodada.
+do $$
+begin
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'avaliacoes'
+  ) then
+    alter publication supabase_realtime add table public.avaliacoes;
+  end if;
+end $$;
 
 -- Avaliações iniciais, as mesmas que o site mostra sem banco configurado.
 insert into public.avaliacoes (nome, papel, nota, comentario, criado_em)

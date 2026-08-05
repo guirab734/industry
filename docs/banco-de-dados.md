@@ -50,6 +50,17 @@ cp .env.example .env.local   # preencha as duas linhas
 npm run dev
 ```
 
+## Como conferir o banco
+
+Rode [`conferir-banco.sql`](./conferir-banco.sql) no SQL Editor. Ele não
+altera nada e devolve uma linha só:
+
+| avaliacoes | politicas | tempo_real | rls_ligada |
+|---|---|---|---|
+| 5 | 2 | 1 | true |
+
+Se algum número vier diferente, rode o `banco.sql` de novo inteiro.
+
 ## Como saber se ligou
 
 Abra a seção **Avaliações**. Embaixo da nota média deve aparecer um ponto
@@ -106,6 +117,11 @@ depois de uma semana sem uso.
 **Publiquei e deu erro**
 Provavelmente o `banco.sql` não rodou até o fim, ou a policy de `insert`
 não foi criada. Rode o arquivo de novo inteiro.
+
+**`relation "avaliacoes" is already member of publication`**
+Sinal de que o arquivo já tinha rodado antes, com sucesso. Versões antigas
+do `banco.sql` paravam aí na segunda execução; a atual passa direto. Rode
+o `conferir-banco.sql` para ter certeza de que está tudo no lugar.
 
 **Aparece para mim mas não para os outros**
 As variáveis foram configuradas só no ambiente local. Falta colocá-las na
