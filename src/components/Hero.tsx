@@ -1,4 +1,5 @@
 import { Comprovante } from "./Comprovante";
+import { QrDominio } from "./QrDominio";
 
 export function Hero() {
   return (
@@ -39,6 +40,10 @@ export function Hero() {
             >
               Falar com a gente
             </a>
+          </div>
+
+          <div className="mt-10 max-w-sm">
+            <QrDominio />
           </div>
         </div>
 

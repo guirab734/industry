@@ -4,15 +4,14 @@ import { Secao } from "./Secao";
 import { QrReal } from "./QrReal";
 
 const PASSOS_ANDROID = [
-  "Aponte a câmera para o código e abra o link",
-  "Toque nos três pontos do navegador",
-  "Escolha Instalar aplicativo ou Adicionar à tela inicial",
-  "Ou baixe o .apk e abra o arquivo, liberando a instalação quando o celular pedir",
+  "Aponte a câmera para o código — o download começa sozinho",
+  "Abra o arquivo baixado",
+  "Libere a instalação quando o celular perguntar, e pronto",
 ];
 
 const PASSOS_IPHONE = [
-  "Aponte a câmera para o código e abra o link no Safari",
-  "Toque no botão de compartilhar",
+  "Toque em Abrir no navegador (o .apk não serve aqui)",
+  "No Safari, toque no botão de compartilhar",
   "Escolha Adicionar à Tela de Início",
 ];
 
@@ -26,27 +25,24 @@ export function Aplicativo() {
     >
       <div className="grid gap-10 lg:grid-cols-[auto_1fr] lg:gap-16">
         <div className="justify-self-center rounded-3xl border border-line bg-paper p-8 text-center">
-          {/* resolverUrl completa "/app" com o domínio de quem está acessando */}
+          {/* O QR aponta para o arquivo: escaneou, o download começa */}
           <QrReal
-            conteudo="/app"
+            conteudo="/velora-sandbox.apk"
             resolverUrl
             tamanho={210}
-            rotulo="Código QR para abrir o Velora Sandbox"
+            rotulo="Código QR para baixar o aplicativo"
             className="mx-auto"
           />
-          <p className="mt-6 text-sm text-ink-40">Aponte a câmera do celular</p>
-          <a
-            href="/app"
-            className="mt-4 inline-block rounded-full bg-velora px-6 py-3 font-medium text-paper transition-colors hover:bg-velora-dark"
-          >
-            Abrir aqui mesmo
-          </a>
+          <p className="mt-6 font-medium text-ink">
+            Aponte a câmera e o download começa
+          </p>
+          <p className="mt-1.5 text-sm text-ink-40">Android · 1 MB</p>
 
           {/* download é atributo, não texto: o navegador salva em vez de abrir */}
           <a
             href="/velora-sandbox.apk"
             download="velora-sandbox.apk"
-            className="mt-3 flex items-center justify-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-ink-40"
+            className="mt-5 flex items-center justify-center gap-2 rounded-full bg-velora px-6 py-3 font-medium text-paper transition-colors hover:bg-velora-dark"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" aria-hidden>
               <path
@@ -60,7 +56,17 @@ export function Aplicativo() {
             </svg>
             Baixar o .apk
           </a>
-          <p className="mt-2.5 text-xs text-ink-40">Android · 1 MB</p>
+
+          <a
+            href="/app"
+            className="mt-3 block rounded-full border border-line px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-ink-40"
+          >
+            Abrir no navegador
+          </a>
+          <p className="mt-3 text-xs leading-relaxed text-ink-40">
+            No iPhone use <strong className="font-semibold">Abrir no
+            navegador</strong> — o arquivo .apk só funciona no Android.
+          </p>
         </div>
 
         <div>
