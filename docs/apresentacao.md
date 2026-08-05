@@ -4,7 +4,9 @@ Roteiro de fala. A regra que vale para tudo: **não leia a tela.** O site é o
 que a plateia olha; você é quem explica.
 
 Tempo total: **10 minutos**. Se estiver atrasado, corte o bloco 5
-(missão e organograma) — é o único que a plateia não sente falta.
+(missão e organograma) — é o único que a plateia não sente falta. **Nunca
+corte o bloco 6**: é onde você responde qual tecnologia de Indústria 4.0
+usou, e é o que o enunciado cobra.
 
 ## Antes de começar
 
@@ -95,20 +97,36 @@ Suba até **A empresa**. Pare em três coisas só:
 
 Não leia os valores um por um. Deixe na tela e siga.
 
-## 6 · Segurança e monitoramento (1 min)
+## 6 · Segurança e a tecnologia 4.0 (1 min 30)
 
-Duas ideias, nada além disso:
+Este é o bloco que mais vale nota. Não passe correndo.
 
-> "Primeiro: a Velora nunca vê a senha de ninguém. Quem digita a senha é o
-> cliente, dentro do app do banco dele."
+Comece pela segurança, em uma frase:
 
-> "Segundo: Pix funciona 24 horas por dia, então a plataforma também
-> precisa. Sensores acompanham os servidores e disparam um alarme sozinhos
-> quando algo começa a sair do normal — o aviso vem antes da queda, não
-> depois."
+> "A Velora nunca vê a senha de ninguém. Quem digita a senha é o cliente,
+> dentro do app do banco dele."
 
-Essa segunda frase é a que amarra o trabalho com a Indústria 4.0. Fale
-devagar. Se quiserem detalhe técnico, você responde no final.
+E emende com a parte que responde ao enunciado. Diga o nome da tecnologia
+em voz alta — o avaliador está esperando ouvir:
+
+> "A ferramenta de Indústria 4.0 que eu escolhi foi **Internet das Coisas**."
+
+> "O problema é simples: Pix funciona 24 horas por dia. Se a plataforma cai
+> às três da manhã, ninguém está olhando para a tela — e cada minuto parado
+> é venda perdida do lojista."
+
+> "Então eu coloquei sensores medindo o tempo de resposta e a temperatura
+> dos servidores, ligados a um painel físico na parede da sala de operação.
+> Verde é normal, amarelo alguém confere, vermelho o alarme toca. O aviso
+> chega antes da queda, não depois."
+
+Fecho do bloco, a frase que amarra tudo:
+
+> "Isso é Indústria 4.0 na prática: a decisão sai de um número medido, não
+> de alguém achando que está tudo bem."
+
+**Detalhe técnico só se perguntarem.** As respostas estão no fim deste
+arquivo.
 
 ## 7 · O app na mão da turma (1 min 30)
 
@@ -161,6 +179,75 @@ Não termine com "é isso, obrigado". Termine com:
 
 > "A Velora vende uma coisa só: a certeza de que o dinheiro chega. Todo o
 > resto do site existe pra provar isso."
+
+---
+
+## A tecnologia 4.0 — resposta completa
+
+Leia antes de apresentar. Na hora, use só o que couber.
+
+### Qual você usou
+
+**Internet das Coisas (IoT)** — sensores que medem o mundo físico e agem
+sozinhos, sem alguém no meio.
+
+### Por que essa, e não outra
+
+O jeito de defender qualquer escolha é o mesmo: **primeiro o problema,
+depois a ferramenta.** Nunca o contrário.
+
+> "O problema não era falta de análise. Era que ninguém estava olhando."
+
+Aí a escolha se justifica sozinha:
+
+| Ferramenta | Por que não foi essa |
+|---|---|
+| **Inteligência artificial** | IA descreve e prevê muito bem, mas não puxa ninguém pelo braço às três da manhã. Meu problema era de aviso, não de análise. |
+| **Big Data** | Serve quando o volume de dados é o gargalo. A Velora é pequena; o dado que importa cabe em três números. |
+| **Computação em nuvem** | Já uso, mas isso é onde a plataforma roda — não é a solução de um problema. |
+| **Robótica / automação** | Não existe linha de montagem aqui. Não faria sentido forçar. |
+
+Se quiser uma frase só, que funciona sempre:
+
+> "IA me diria que a queda ia acontecer. O sensor acorda alguém. Meu
+> problema era o segundo."
+
+### Como foi aplicada
+
+Três medidas, três estados, uma ação para cada:
+
+| Cor | Quando | O que acontece |
+|---|---|---|
+| Verde | resposta < 500 ms e temperatura < 40 °C | nada a fazer |
+| Amarelo | resposta 500 ms – 1,5 s, ou temperatura ≥ 40 °C | plantonista confere |
+| Vermelho | resposta ≥ 1,5 s ou temperatura ≥ 50 °C | alarme toca, plantão acionado |
+
+Dois amarelos seguidos viram investigação obrigatória, mesmo que nunca
+chegue no vermelho. O painel roda em Arduino, o código está em
+`prototipo-iot/`, e os mesmos limites aparecem na aba **Painel** do
+aplicativo — protótipo e produto contam a mesma história.
+
+### O que isso muda no negócio
+
+Não fale de sensor, fale de dinheiro:
+
+> "Antes, a empresa descobria o problema pelo lojista reclamando. Agora
+> descobre pelo alarme, antes do lojista perceber. É a diferença entre
+> perder a venda e não perder."
+
+### Se apertarem: "só isso de 4.0?"
+
+Não. Aponte o resto, que já está na sua frente:
+
+- **Digitalização do serviço** — a cobrança nasce, é paga e é confirmada
+  sem papel e sem ninguém conferindo extrato
+- **Aplicativo móvel** — o produto na mão do lojista, não numa sala
+- **Decisão por dado** — o time de *Dados e monitoramento* existe sozinho
+  no organograma, não como tarefa de alguém nas horas vagas
+- **Integração** — site, app e painel olham para os mesmos números
+
+> "A Indústria 4.0 não é uma tecnologia só. É a operação inteira passar a
+> funcionar a partir de dado medido. A IoT é a peça que eu construí."
 
 ---
 
