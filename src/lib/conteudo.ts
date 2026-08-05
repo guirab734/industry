@@ -235,51 +235,14 @@ export const seguranca = [
   },
 ];
 
-export const prototipo = {
-  problema:
-    "A plataforma é vigiada por painéis dentro do computador. O problema é que ninguém fica olhando para um painel o dia inteiro — e o Pix funciona 24 horas por dia, inclusive de madrugada e no fim de semana.",
-  solucao:
-    "Um painel físico, montado com Arduino, que fica ligado na parede da sala de operação. Ele não depende de alguém abrir uma tela: a luz muda de cor e o alarme toca sozinho.",
-  componentes: [
-    { peca: "Arduino Uno", papel: "o cérebro do painel" },
-    { peca: "Sensor de temperatura", papel: "mede o calor do servidor" },
-    { peca: "Display LCD 16×2", papel: "mostra pagamentos por minuto e tempo de resposta" },
-    { peca: "LED verde, amarelo e vermelho", papel: "estado da plataforma, visível de longe" },
-    { peca: "Buzzer", papel: "alarme sonoro quando passa do limite" },
-  ],
-  estados: [
-    {
-      cor: "verde" as const,
-      titulo: "Normal",
-      criterio: "Resposta abaixo de 500 ms e temperatura sob controle",
-      acao: "Nada a fazer",
-    },
-    {
-      cor: "amarelo" as const,
-      titulo: "Atenção",
-      criterio: "Resposta entre 500 ms e 1,5 s, ou servidor esquentando",
-      acao: "O plantonista confere antes de virar problema",
-    },
-    {
-      cor: "vermelho" as const,
-      titulo: "Crítico",
-      criterio: "Resposta acima de 1,5 s, falha de confirmação ou calor excessivo",
-      acao: "Alarme dispara e o plantão é acionado na hora",
-    },
-  ],
-  beneficios: [
-    { beneficio: "Menos tempo fora do ar", numero: "de 43 min para menos de 5 min por mês" },
-    { beneficio: "Problema visto antes de virar queda", numero: "alerta em média 8 min antes da falha" },
-    { beneficio: "Ninguém depende de estar olhando a tela", numero: "cobertura 24 h, inclusive de madrugada" },
-    { beneficio: "Venda que deixaria de acontecer", numero: "cada minuto no ar é pedido que não cai" },
-    { beneficio: "Manutenção antes da quebra", numero: "aquecimento anormal indica peça no fim da vida" },
-    { beneficio: "Histórico para decidir", numero: "todo alerta fica registrado com data e causa" },
-  ],
-  monitoramento: [
-    "Indicadores da semana: disponibilidade, tempo médio de confirmação, alertas disparados e chamados abertos.",
-    "Painel: o próprio quadro na parede, mais o histórico guardado para consulta.",
-    "Ritual: revisão toda segunda-feira entre Tecnologia e Operações.",
-    "Gatilho: dois alertas amarelos seguidos no mesmo dia viram investigação obrigatória.",
+export const monitoramento = {
+  titulo: "A gente fica de olho o tempo todo",
+  texto:
+    "Pix funciona 24 horas por dia, então a plataforma também precisa funcionar. Sensores acompanham os servidores e disparam um alarme sozinhos quando alguma coisa começa a sair do normal.",
+  pontos: [
+    "O alarme toca sem depender de alguém olhando a tela",
+    "O aviso vem antes da queda, não depois",
+    "Todo alerta fica registrado, com dia e hora",
   ],
 };
 

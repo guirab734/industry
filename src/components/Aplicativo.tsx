@@ -21,7 +21,7 @@ export function Aplicativo() {
       id="aplicativo"
       etiqueta="Aplicativo"
       titulo="Instale o ambiente de teste no seu celular"
-      intro="O Velora Sandbox é o app onde qualquer pessoa faz uma cobrança de mentira, vê o QR nascer e acompanha o pagamento ser confirmado — além do painel de monitoramento que espelha o protótipo físico. Nenhum dinheiro é movimentado."
+      intro="O Velora Sandbox é o app onde qualquer pessoa faz uma cobrança de mentira, vê o QR nascer e acompanha o pagamento ser confirmado. Nenhum dinheiro é movimentado."
     >
       <div className="grid gap-10 lg:grid-cols-[auto_1fr] lg:gap-16">
         <div className="justify-self-center rounded-3xl border border-line bg-paper p-8 text-center">
@@ -50,7 +50,7 @@ export function Aplicativo() {
             {[
               "Cobrar — digite um valor, gere a cobrança e confirme o pagamento",
               "Histórico — todas as cobranças de teste, com o tempo de cada confirmação",
-              "Painel — o monitoramento ao vivo, com os mesmos limites do circuito do Arduino",
+              "Painel — como está a plataforma neste momento",
             ].map((item) => (
               <li key={item} className="flex gap-3 text-ink-70">
                 <span

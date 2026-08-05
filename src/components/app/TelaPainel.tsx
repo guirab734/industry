@@ -7,8 +7,8 @@ type Leitura = { pixPorMin: number; latencia: number; temperatura: number };
 const INICIAL: Leitura = { pixPorMin: 1284, latencia: 240, temperatura: 38 };
 
 /**
- * Espelho do painel físico do protótipo: os mesmos três estados e os
- * mesmos limites que estão no código do Arduino.
+ * Painel de saúde da plataforma. Os três estados e os limites são os
+ * mesmos usados no monitoramento real.
  */
 export function TelaPainel() {
   const [leitura, setLeitura] = useState<Leitura>(INICIAL);
@@ -72,8 +72,7 @@ export function TelaPainel() {
         Force um cenário
       </h2>
       <p className="mt-2 text-sm text-paper/50">
-        É o que o potenciômetro faz no circuito do Tinkercad: obriga a
-        plataforma a degradar para você ver o alarme reagir.
+        Force a plataforma a piorar para ver como o alarme reage.
       </p>
       <div className="mt-4 grid grid-cols-3 gap-2.5">
         <Botao ativo={forcado === null} onClick={() => setForcado(null)}>
@@ -94,9 +93,9 @@ export function TelaPainel() {
       </div>
 
       <p className="mt-8 rounded-2xl bg-paper/6 p-5 text-sm leading-relaxed text-paper/60">
-        Este painel é a versão de bolso do protótipo físico: mesmos limites,
-        mesmas três luzes. Na sala de operação ele fica na parede, com buzzer,
-        para ninguém depender de estar olhando uma tela às três da manhã.
+        Na sala de operação existe um painel igual a este, só que na parede e
+        com alarme sonoro — para ninguém depender de estar olhando uma tela às
+        três da manhã.
       </p>
     </div>
   );

@@ -1,147 +1,137 @@
-# Roteiro da apresentação — 10 minutos
+# Como apresentar o site da Velora
 
-A ideia central: **não descrever o produto, fazer ele acontecer na frente de
-todo mundo.** Você tem três demonstrações ao vivo (o simulador do site, o
-circuito no Tinkercad e o app na mão da plateia). Elas são o trabalho — o
-resto é ligação entre uma e outra.
+Roteiro de fala. A regra que vale para tudo: **não leia a tela.** O site é o
+que a plateia olha; você é quem explica.
 
 ## Antes de começar
 
-- [ ] Site aberto numa aba, já no topo
-- [ ] Tinkercad aberto em outra aba, circuito montado e **parado**
-- [ ] Seu celular com o app já instalado, espelhado na tela se der
-- [ ] Testar o wi-fi da sala. Se estiver ruim, o app já funciona offline
-      depois de aberto uma vez — abra antes de entrar
-- [ ] Deixar o volume do computador ligado (o buzzer precisa ser ouvido)
+- [ ] Site aberto numa aba, já no topo da página
+- [ ] Seu celular com o app aberto uma vez (ele funciona offline depois disso)
+- [ ] Testar o wi-fi da sala
 
 ---
 
-## 1 · O problema (1 min)
+## 1 · Comece pela dor, não pela empresa (1 min)
 
-Comece pela dor, não pela empresa.
+Não abra dizendo "a Velora é um gateway de pagamentos". Ninguém se importa
+ainda. Abra assim:
 
 > "Imagina que você vende bolo por encomenda. O cliente pede, você manda sua
 > chave Pix por mensagem, ele paga e te manda um print. Aí você abre o
 > aplicativo do banco pra conferir se caiu mesmo. Todo pedido. Toda vez."
 
-Pergunte quem na sala já pagou ou recebeu assim. Vão levantar a mão — e aí
-todo mundo entendeu o problema sem você explicar nada técnico.
+**Pergunte quem já pagou ou recebeu assim.** Vão levantar a mão. Pronto: a
+turma entendeu o problema sem você usar uma palavra técnica.
 
-## 2 · A empresa (1 min 30)
+## 2 · O que a empresa faz (1 min)
 
-Rápido. É contexto, não é o ponto alto.
+Agora sim. Mostre o topo do site e leia a frase grande em voz alta:
 
-Navegue até **A empresa** e pare em três coisas só:
+> "O dinheiro sai da conta dele e chega na sua antes de você piscar."
 
-- **Missão** — leia em voz alta, é uma frase.
-- **Organograma** — aponte para *Dados e monitoramento*. Diga a frase que
+E complete com a analogia, que está na seção **Como funciona**:
+
+> "Um gateway é o caixa da loja, só que na internet. No comércio de rua o
+> caixa recebe o dinheiro, confere e avisa o vendedor que pode entregar. A
+> Velora faz isso numa loja online, em menos de um segundo, sem ninguém
+> operando."
+
+## 3 · O quadro do antes e depois (30 s)
+
+Desça até o quadro **sem a Velora × com a Velora**. Não leia os oito itens.
+Aponte e diga:
+
+> "Do lado esquerdo é o jeito que quase todo mundo faz hoje. Do lado direito
+> é o que acontece quando existe um sistema no meio."
+
+## 4 · O simulador — o momento principal (2 min)
+
+Este é o ponto alto. Pare no simulador e **peça um valor para a plateia**.
+Alguém vai gritar um número. Digite.
+
+1. Clique em **Gerar cobrança** — o QR aparece
+2. Diga: *"esse código é único, vale só pra essa compra"*
+3. Clique em **Simular o pagamento**
+4. Quando o comprovante sair: *"foi isso. Em menos de um segundo o lojista já
+   sabe que pode fazer o bolo."*
+
+Deixe o comprovante na tela por uns segundos antes de seguir.
+
+## 5 · A empresa por dentro (1 min 30)
+
+Suba até **A empresa**. Pare em três coisas só:
+
+- **Missão** — leia, é uma frase
+- **Organograma** — aponte para *Dados e monitoramento* e diga a frase que
   vale nota: *"esse time existir sozinho, e não como tarefa de alguém nas
   horas vagas, é o que coloca a empresa dentro da Indústria 4.0: a decisão
   sai do número medido, não do achismo."*
-- **Objetivos** — mostre que cada meta tem uma coluna dizendo como se mede.
+- **Objetivos** — mostre que cada meta tem uma coluna dizendo como se mede
 
 Não leia os valores um por um. Deixe na tela e siga.
 
-## 3 · O site, ao vivo (2 min)
+## 6 · Segurança e monitoramento (1 min)
 
-Vá para **Como funciona**.
+Duas ideias, nada além disso:
 
-1. Leia a analogia do caixa da loja. É ela que faz o leigo entender.
-2. Passe pelo quadro *sem a Velora × com a Velora*.
-3. **Pare no simulador.** Peça um valor para a plateia — alguém grita "cem
-   reais". Digite. Gere a cobrança. Mostre o QR nascendo. Clique em simular o
-   pagamento e deixe o comprovante aparecer.
+> "Primeiro: a Velora nunca vê a senha de ninguém. Quem digita a senha é o
+> cliente, dentro do app do banco dele."
 
-> "Foi isso. Em oito décimos de segundo o lojista já sabe que pode fazer o
-> bolo."
+> "Segundo: Pix funciona 24 horas por dia, então a plataforma também
+> precisa. Sensores acompanham os servidores e disparam um alarme sozinhos
+> quando algo começa a sair do normal — o aviso vem antes da queda, não
+> depois."
 
-Depois desça até **Avaliações** e mostre a média e o formulário — mas não
-demore, você volta nele no fim se sobrar tempo.
+Se perguntarem como, aí sim você fala do painel com Arduino. Só se
+perguntarem.
 
-## 4 · O QR do app (30 s) — o momento que ninguém mais vai ter
+## 7 · O app na mão da turma (1 min)
 
 Vá para a seção **Aplicativo** e deixe o QR grande na tela.
 
-> "Peguem o celular. Apontem a câmera. Vocês vão instalar o ambiente de
-> testes da empresa e fazer as próprias cobranças enquanto eu continuo."
+> "Peguem o celular e apontem a câmera. Vocês vão instalar o ambiente de
+> teste e fazer as próprias cobranças."
 
-Deixe o QR na tela enquanto fala. A plateia mexendo no seu produto durante a
-sua apresentação é o que separa esse trabalho dos outros. Diga em voz alta
-que é ambiente de teste e que nenhum dinheiro é movimentado — está escrito na
-tela, mas fale mesmo assim.
+Diga em voz alta que é ambiente de teste e que nenhum dinheiro é
+movimentado — está escrito na tela, mas fale mesmo assim.
 
-## 5 · O protótipo, ao vivo (3 min)
+Enquanto eles instalam, abra o app no seu celular e mostre a aba **Painel**,
+tocando em *Atenção* e *Crítico*:
 
-Aqui é o coração. Vá para o Tinkercad.
+> "Isso é o que a operação enxerga. Verde é normal, amarelo é alguém vai
+> conferir, vermelho é alarme tocando."
 
-1. **Explique o problema antes de ligar:** *"tudo que vocês acabaram de fazer
-   depende de um servidor respondendo. E servidor esquenta, trava, cai. De
-   madrugada, sem ninguém olhando."*
-2. **Inicie a simulação.** LED verde aceso, LCD mostrando os números.
-3. **Gire o potenciômetro devagar.** O LED vira amarelo. Pare aí um segundo:
-   *"isso é o plantonista sendo chamado antes de virar problema."*
-4. **Continue girando.** LED vermelho e **buzzer tocando.** Deixe tocar. O
-   silêncio da sala com o alarme tocando é o melhor momento da apresentação.
-5. **Volte para o verde** e o alarme cala.
+## 8 · Avaliações e contato (30 s)
 
-Depois abra o app no seu celular, aba **Painel**, e mostre os mesmos três
-estados no botão "Force um cenário".
+Passe rápido:
 
-> "É o mesmo limite, o mesmo alarme. Um na parede da fábrica, outro no bolso
-> de quem está de plantão."
+> "Toda avaliação fica publicada como chegou, inclusive as que apontam o que
+> falta. E o formulário de contato valida o que você digita antes de enviar."
 
-## 6 · A costura (1 min)
+## 9 · Feche em uma frase (30 s)
 
-Esse é o slide que diferencia o trabalho. Diga o ciclo inteiro, apontando:
+Não termine com "é isso, obrigado". Termine com:
 
-> "O cliente paga → a Velora confirma em menos de um segundo → o painel mede
-> se a plataforma está aguentando → o alerta dispara antes da queda → nenhuma
-> venda se perde. O sensor não é enfeite: ele protege a única coisa que a
-> empresa vende, que é a certeza de que o dinheiro chega."
-
-## 7 · Benefícios e monitoramento (1 min)
-
-Volte ao site, seção **Segurança**, e mostre a tabela de benefícios com os
-números. Depois a lista de acompanhamento:
-
-- indicadores da semana
-- painel de histórico
-- revisão toda segunda-feira
-- dois amarelos seguidos viram investigação
-
-Termine em uma frase, não em "é isso, obrigado":
-
-> "A gente não colocou sensor porque é bonito. Colocou porque quarenta e três
-> minutos fora do ar por mês eram vendas dos nossos lojistas indo embora."
+> "A Velora vende uma coisa só: a certeza de que o dinheiro chega. Todo o
+> resto do site existe pra provar isso."
 
 ---
 
 ## Se perguntarem
 
 **"O pagamento é de verdade?"**
-Não. O app é ambiente de teste, os comprovantes saem marcados como simulação
-e nada sai do celular. É para entender como funciona.
+Não. O simulador do site e o app são ambiente de teste, os comprovantes saem
+marcados como simulação e nada sai do navegador.
+
+**"Onde ficam as avaliações?"**
+No próprio navegador de quem escreveu. Não precisa de servidor, e por isso
+funciona mesmo se a internet da sala cair.
+
+**"Qual a ferramenta de Indústria 4.0?"**
+Internet das Coisas. Sensores acompanham os servidores que sustentam a
+plataforma e disparam alarme antes da falha. O código do painel está em
+`prototipo-iot/`.
 
 **"Por que IoT e não inteligência artificial?"**
 IA descreve ou prevê, mas não aciona ninguém às três da manhã. O problema
 aqui era ninguém estar olhando a tela — isso é sensor, não é modelo.
-
-**"O site guarda as avaliações onde?"**
-No próprio navegador de quem escreveu. Não precisa de servidor, e por isso
-funciona mesmo se a internet da sala cair.
-
-**"Quanto custa montar o painel?"**
-Arduino Uno, sensor, LCD, três LEDs e um buzzer. Menos de cem reais em peça,
-contra o prejuízo de uma hora fora do ar.
-
-## Divisão se for em grupo
-
-| Pessoa | Fala |
-|---|---|
-| 1 | Problema e empresa (partes 1 e 2) |
-| 2 | Site e simulador (parte 3) e o QR (parte 4) |
-| 3 | Protótipo no Tinkercad (parte 5) |
-| 4 | Costura, benefícios e fechamento (partes 6 e 7) |
-
-Quem não está falando fica de olho na plateia instalando o app — e ajuda quem
-travar.
