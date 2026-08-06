@@ -112,6 +112,12 @@ Se quiser fechar com estilo, uma frase só:
 - **Perguntarem quem inventou a máquina a vapor?** Watt não inventou do
   zero: ele melhorou a máquina de Thomas Newcomen, de 1712, e a deixou
   eficiente o bastante para valer a pena.
+- **Perguntarem como a força vinha de animais?** O cavalo ou boi era
+  amarrado a uma viga presa num eixo; andava em círculo o dia todo e o eixo
+  girava a mó do moinho, a bomba ou o guincho da mina. O problema é que
+  cavalo cansa, come e dorme. E foi o próprio Watt que criou a palavra
+  "cavalo-vapor", para vender a máquina dizendo quantos cavalos ela
+  substituía — a unidade que está até hoje no motor do carro.
 - **Perguntarem por que a Inglaterra e não outro país?** Carvão, ferro e
   capital de comércio no mesmo lugar, mais um governo que protegia patente.
 - **Perguntarem sobre a Segunda em diante?** Você já respondeu no slide 3.
